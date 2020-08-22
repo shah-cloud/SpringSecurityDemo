@@ -25,10 +25,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /*
     configure(HttpSecurity http) this method is necessary when @Configuration and @EnableWebSecurity annotated with this class, otherwise it won't work.
     case:2 if Default User Credentials in application.properties file will not work, because default spring login not work.
+    case:3 '/' must be concatenated as a suffix with routes address otherwise won't work
+
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/").authenticated()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/user").hasAnyRole("ADMIN","USER")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
