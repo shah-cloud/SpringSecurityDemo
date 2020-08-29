@@ -24,8 +24,8 @@ public class DbInit {
 
         // Crete users
         User user = new User("shahfahed", passwordEncoder.encode("1234"), "USER", "");
-        User admin = new User("admin", passwordEncoder.encode("1234"), "ADMIN", "ACCESS_USER,ACCESS_ADMIN");
-        User manager = new User("manager", passwordEncoder.encode("manager123"), "MANAGER", "ACCESS_USER");
+        User admin = new User("admin", passwordEncoder.encode("1234"), "ADMIN", "ACCESS_ADMIN");
+        User manager = new User("manager", passwordEncoder.encode("manager123"), "MANAGER", "");
 
         List<User> users = Arrays.asList(user, admin, manager);
 
