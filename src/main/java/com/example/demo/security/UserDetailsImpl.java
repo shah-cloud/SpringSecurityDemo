@@ -29,7 +29,7 @@ public class UserDetailsImpl implements UserDetails {
 
         //Extract roles
         this.user.getRolesList().forEach(r -> {
-            GrantedAuthority authority = new SimpleGrantedAuthority("Role_" + r);
+            GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + r);
             authorities.add(authority);
         });
 
